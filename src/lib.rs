@@ -39,6 +39,7 @@ fn impl_define_clone_into_macro(ast: &syn::DeriveInput) -> TokenStream {
             let out = quote! {
                 #[macro_export]
                 macro_rules! #macro_name {
+                    // this might be bug. ty for $to can't parse after macro processed.
                     ($from: ident, $to: ident { $($id: ident : $val: expr)* }) => {
                         $to {
                             #( #field_names2 : $from.#field_names2.clone() , )*
