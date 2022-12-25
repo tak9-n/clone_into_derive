@@ -35,12 +35,19 @@ fn impl_define_clone_into_macro(ast: &syn::DeriveInput) -> TokenStream {
                     syn::Visibility::Public(_) => Some(field.ident),
                     _ => None,
                 });
+            let field_names2 = field_names.clone();
             let out = quote! {
                 #[macro_export]
                 macro_rules! #macro_name {
-                    ($from: expr, $to: expr) => {
+                    ($from: ident, $to: ident { $($id: ident : $val: expr)* }) => {
+                        $to {
+                            #( #field_names2 : $from.#field_names2.clone() , )*
+                            $($id : $val, )*
+                        }
+                    };
+                    ($from: ident, $to: ident) => {
                         #( $to.#field_names = $from.#field_names.clone() );*
-                    }
+                    };
                 }
             };
             out.into()

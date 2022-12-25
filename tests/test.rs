@@ -25,4 +25,13 @@ mod tests {
         assert!(included.a == full.a);
         assert!(included.b == full.b);
     }
+
+    #[test]
+    fn clone_into_new_struct() {
+        use super::test_structs::FullStruct;
+        let included = super::test_structs::IncludedStruct {a: 0, b: 1};
+        let full = included_struct_clone_into!(included, FullStruct {c: 4});
+        assert!(included.a == full.a);
+        assert!(included.b == full.b);
+    }
 }
