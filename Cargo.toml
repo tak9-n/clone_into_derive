@@ -3,7 +3,7 @@ name = "clone_into_derive"
 version = "0.1.0"
 authors = ["Takuya Hirata <hirtak2000@gmail.com>"]
 edition = "2021"
-licence = "Apache-2.0"
+license = "Apache-2.0"
 repository = "https://github.com/tak9-n/clone_into_derive"
 description= "This crates generate clone macro for structs. It's quite convenient if you want that a struct copy to another struct which includes the struct fully."
 [lib]
