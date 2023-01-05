@@ -24,5 +24,6 @@ This code generate `aaa_bbb_clone_into!` macro. And the `aaa_bbb_clone_into!(aaa
       c: 4
     }
 ```
+You can specify struct name at `Ccc`. But there is one limit. Now, you can't specify the struct name with path, so you have to specfy just only the struct name. It looks like `macro_rules`'s bug. When I used `ty` disanator, The macro expansion result became an error. 
 
 The example is in *tests* directory. 
