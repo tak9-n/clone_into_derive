@@ -40,13 +40,13 @@ fn impl_define_clone_into_macro(ast: &syn::DeriveInput) -> TokenStream {
                 #[macro_export]
                 macro_rules! #macro_name {
                     // this might be bug. ty for $to can't parse after macro processed.
-                    ($from: ident, $to: ident { $($id: ident : $val: expr)* }) => {
+                    ($from: expr, $to: ident { $($id: ident : $val: expr)* }) => {
                         $to {
                             #( #field_names2 : $from.#field_names2.clone() , )*
                             $($id : $val, )*
                         }
                     };
-                    ($from: ident, $to: ident) => {
+                    ($from: expr, $to: ident) => {
                         #( $to.#field_names = $from.#field_names.clone() );*
                     };
                 }

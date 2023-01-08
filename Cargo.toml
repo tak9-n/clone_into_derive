@@ -1,6 +1,6 @@
 [package]
 name = "clone_into_derive"
-version = "0.1.0"
+version = "0.1.1"
 authors = ["Takuya Hirata <hirtak2000@gmail.com>"]
 edition = "2021"
 license = "Apache-2.0"
