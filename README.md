@@ -16,7 +16,7 @@ This code generate `aaa_bbb_clone_into!` macro. And the `aaa_bbb_clone_into!(aaa
     ccc.a = aaabbb.a.clone();
     ccc.b = aaabbb.b.clone();
 ```
-`aaa_bbb_ccc_clone!(aaabbb,Ccc{c: 4})` is expanded like below.
+`aaa_bbb_clone_into!(aaabbb,Ccc{c: 4})` is expanded like below.
 ```rust
     Ccc {
       a: aaabbb.a.clone(),
